@@ -1,17 +1,9 @@
-using Microsoft.AspNetCore.Builder;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Http;
 using System;
-using System.Linq;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Crud_Operation.CommonLayer.Model;
-using Crud_Operation.RepositoryLayer;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Data.SqlClient;
-
+using Microsoft.Extensions.Configuration;
 
 namespace Crud_Operation.RepositoryLayer
 {
@@ -23,7 +15,7 @@ namespace Crud_Operation.RepositoryLayer
         public CrudOperationRL(IConfiguration configuration)
         {
             _configuration = configuration;
-            _sqlConnection = new SqlConnection(_configuration[key: "ConnectionStrings:DBSettingConnection"]);
+            _sqlConnection = new SqlConnection(_configuration.GetConnectionString("CrudOperationConnection"));
         }
         public async Task<CreateRecordResponse> CreateRecord(CreateRecordRequest request)
         {

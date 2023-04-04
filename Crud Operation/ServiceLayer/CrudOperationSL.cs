@@ -1,11 +1,3 @@
-using Microsoft.AspNetCore.Builder;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Http;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using Crud_Operation.CommonLayer.Model;
 using Crud_Operation.RepositoryLayer;
@@ -37,7 +29,7 @@ namespace Crud_Operation.ServiceLayer
 
         public async Task<UpdateRecordResponse> UpdateRecord(UpdateRecordRequest recordRequest)
         {
-            return await _CrudOperationRL.UpdateRecord(request);
+            return await _CrudOperationRL.UpdateRecord(recordRequest);
         }
     }
 
